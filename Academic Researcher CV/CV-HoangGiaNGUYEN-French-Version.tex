@@ -1,0 +1,395 @@
+%% start of file `main.tex'.
+%% Copyright 2014 Francois Mouton (moutonf@gmail.com).
+%
+% This template is adapted from the work performed by Xavier Danaux (xdanaux@gmail.com).
+% This template further extends the functionality by integrating the moderntimeline package.
+% This template also includes custom Biblatex style to print bibliography items with the moderntimeline package.
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv/moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % Only the 'classic' style is fully functional with the modifications made. The other options, 'casual' (default), 'oldstyle' and 'banking' has minor typesetting problems with the current modifications.
+\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column of the timeline
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. Be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks.
+
+%-------------------Inlcuding pdfpages package-------------------------------------------------------------
+
+\usepackage{pdfpages/pdfpages}
+
+%-------------------Including moderntimeline package-------------------------------------------------------
+
+\usepackage{moderntimeline/moderntimeline}
+
+\tlmaxdates{2000}{2026}                             % Set the scale of the timeline. \tlmaxdates{startDate}{endDate}
+
+%-------------------Including xpatch package---------------------------------------------------------------
+
+\usepackage{xpatch/xpatch}
+
+%-------------------Including Biblatex package-------------------------------------------------------------
+
+\usepackage[url=false,
+    backend=biber,                                  % This can be set to either biber or bibtex. If references are missing just change back and forth between biber and bibtex..
+    style=authoryear,
+    doi=false,  
+    isbn=false,
+    backref=false,
+    dashed=false,                                   % Do not add a dash out authors for subsequent articles with the same authors.
+    maxnames=99,                                    % Amount of authors to include before abbreviating.
+    sorting=ydnt]{biblatex}                         % Sorting in reverse order
+
+\addbibresource{cvreferences.bib}                   % Include your bibtex file here. Format: fileName.bib
+
+\input{biblatex_modifications/standard_modification.tex}        % Modifying the default standard.tex style of Biblatex. This modification is performed to include the moderntimeline package.
+
+%-------------------Defining a CV Reference column style and a CV reference entry block-------------------
+
+% Adapted from the solution provided in: http://tex.stackexchange.com/questions/34881/references-section-in-a-cv
+% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}{mobile phone number}
+% Everything but the name is optional
+% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
+% (Per default, \addresssymbol isn't specified, the other two are specified.)
+% If you don't like the symbols, remove them from the following code, including the tilde ~ (e.g. \phonesymbol~).
+
+\newcommand{\cvreferencecolumn}[2]{%
+  \cvitem[0.75em]{}{%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#2\end{minipage}%
+    }%
+}
+
+\newcommand{\cvreference}[8]{%
+    \textbf{#1}\newline% Name
+    \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+    \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+    \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+    \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+    \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{\href{mailto:#6}{\nolinkurl{#6}}}\newline}%
+    \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7\newline}
+    \ifthenelse{\equal{#8}{}}{}{\mobilephonesymbol~#8}}
+
+%-------------------Personal Data for CV title-----------------------------------------------------------
+% Example:
+\name{Résumé}{}
+\title{Hoang Gia NGUYEN}                               % optional, remove / comment the line if not wanted
+\address{Date de Naissance: 22/09/1990}{Adresse: Appartement 22, 3 allée Léon Blum}{59260, HELLEMMES, Lille, France}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+%\address{Date de Naissance: 22/09/1990}{Adresse: 221 rue Championnet}{75018, Paris, France}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{+33 7 68 64 62 62}                   % optional, remove / comment the line if not wanted
+%\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+\email{hoanggia.nguyen@lipn.univ-paris13.fr}
+%\email{hoanggia.nguyen@lipn.univ-paris13.fr}                               % optional, remove / comment the line if not wanted
+\homepage{lipn.univ-paris13.fr/~hoanggia.nguyen}                         % optional, remove / comment the line if not wanted
+%\extrainfo{additional information} 
+\extrainfo{Nationalité: Vietnamienne}
+%\extrainfo{Citizenship: Vietnamese}                  % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{images/picture}   
+%\photo[64pt][0.4pt]{images/ID_photo_2.jpg}      
+\photo[80pt][0.4pt]{images/ID_photo_2.jpg}                    % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file stored
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+%-------------------------------------------------------------------------------------------------------
+%   Content
+%-------------------------------------------------------------------------------------------------------
+\begin{document}
+
+%-------------------Resume------------------------------------------------------------------------------
+
+\makecvtitle
+
+
+%-------------------Experience Section------------------------------------------------------------------
+
+\section{Expériences}
+
+
+%-------------------Vocational Experience---------------------------------------------------------------
+
+\medskip
+
+\subsection{Professionnelles}
+
+
+\tlcventry{2020}{2018}{Post-doctorat}{Laboratoire INRIA}{}{Lille, France.}{%
+	%	\begin{itemize}%
+	%		\item Application for network and telecommunication
+	%		\item Database foundation
+	%		\item Networking foundation
+	%	\end{itemize}
+	\textbf{Thématique:} Design of Correct-by-Construction Self-Adaptive Cloud Applications Using Formal Methods.
+}
+
+\tlcventry{2015}{2014}{Stagiaire}{Laboratoire LIPN - Université Paris 13}{Paris, France}{}{}
+
+\tlcventry{2015}{2014}{Membre}{Laboratoire SAVE (Laboratory of Systems Analysis and VErification)}{Ho Chi Minh, Vietnam}{}
+{}
+
+\tlcventry{2010}{2012}{Développeur et Administrateur d'E-Commerce System}{Hoang Cuong Electronic}{Ho Chi Minh ville - Vietnam}{}{}
+
+
+\subsection{Enseignements}
+
+% Format: \tlcventry{StartYear}{EndYear}{Job title}{Employer}{City}{Country (optional)}{General description no longer than 1--2 lines.\newline{}%
+% Example:
+
+\tlcventry{2017}{2015}{Moniteur}{IUT - Université Paris 13}{}{}{
+	Cours: Application Informatique Dédiée aux R\&T, Bases de Données, Bases des Services Réseaux.}
+%
+%	\begin{itemize}%
+%		\item Application for network and telecommunication
+%		\item Database foundation
+%		\item Networking foundation
+%	\end{itemize}
+
+
+
+
+
+%-------------------Education Section-------------------------------------------------------------------
+
+\section{Éducation}
+
+\tlcventry{2018}{2015}{Doctorat Informatique}{Laboratoire d'Informatique de Paris Nord - LIPN}{Université Paris 13}{Villetaneuse, France}{
+\begin{itemize}
+	\item \textbf{Thématique:} \emph{Efficient Parametric Verification of Parametric Timed Automata} 
+	\item \textbf{Directeurs:} { Prof. Étienne ANDRÉ and Prof. Laure PETRUCCI }
+\end{itemize}
+}
+%{Also completed several random courses}
+
+\tlcventry{2014}{2012}{Master Informatique, Génie Logiciel (Génie des Télécommunications et Réseaux)}{Université de Bordeaux (en coopération avec l'Université de Paris 6)}{PUF - Pôle Universitaire Français}{Ho Chi Minh ville, Vietnam}{
+\begin{itemize}
+	\item \textbf{M2:} Étudiant de première classe avec une moyenne de 15.6.
+	\begin{itemize}
+		\item \textbf{Rapport:} Efficient Parametric Verification of Real-Time Systems - Nommé pour la Meilleure Thèse.
+	\end{itemize}
+	\item \textbf{M1:} Étudiant de seconde classe avec une moyenne de 14.4.
+\end{itemize}
+}
+%{Also completed several random courses}
+
+\tlcventry{2012}{2008}{Licence Informatique, Génie Logiciel}{Université Hoa Sen}{Ho Chi Minh ville, Vietnam}{}{}
+%{Also completed several random courses}
+
+\tlcventry{2008}{2005}{Élève Doué en Mathématiques, Physique et Chimie}{Lycée Nguyen Chi Thanh}{Ho Chi Minh ville, Vietnam}{}{}
+
+
+
+
+
+%-------------------Publications----------------------------------------------------------------
+
+\section{Publications}
+
+\cvlistitem{Étienne André, Hoang Gia Nguyen et  Laure Petrucci. \textbf{Distributed non-Zenoness parametric model checking (article de revues internationales)}. Soumis. }
+
+\cvlistitem{Hoang Gia Nguyen, Laure Petrucci, et Jaco van de Pol. \textbf{Layered and Collecting NDFS with Subsumption for Parametric Timed Automata}. 23nd International Conference on Engineering of Complex Computer Systems, IEEE CPS {ICECCS 2018}. }
+
+\cvlistitem{Étienne André, Hoang Gia Nguyen et Laure Petrucci. \textbf{Efficient parameter synthesis using optimized state exploration strategies}. 22nd International Conference on Engineering of Complex Computer Systems, IEEE CPS {ICECCS 2017}. }
+
+\cvlistitem{Étienne André, Hoang Gia Nguyen,  Laure Petrucci et Sun Jun. \textbf{Parametric model checking timed automata under non-Zenoness assumption}. 
+9$^{th}$ NASA Formal Methods Symposium {NFM 2017}. 
+}
+
+\cvlistitem{Étienne André, Giuseppe Lipari, Hoang Gia Nguyen et Youcheng Sun. \textbf{Reachability Preservation Based Parameter Synthesis for Timed Automata}. 
+%In Klaus Havelund, Gerard Holzmann, Rajeev Joshi (eds.), 
+7$^{th}$ NASA Formal Methods Symposium {NFM 2015}.
+%LNCS9058, Springer, pages 50–65, April 2015. Acceptance rate: 31\%. 
+}
+
+\cvlistitem{Étienne André, Camille Coti et Hoang Gia Nguyen, \textbf{Enhanced Distributed Behavioral Cartography of Parametric Timed Automata}, 17$^{th}$ International Conference on Formal Engineering Methods ICFEM 2015.}
+
+
+
+%-------------------Publications----------------------------------------------------------------
+
+\section{Logiciels}
+
+\cvlistitem{\textbf{IMITATOR - Parameter Synthesis for Real-Time Systems} \\ \url{https://www.imitator.fr}}
+
+\cvlistitem{\textbf{JavaBIP - Coordination of concurrent Java components using a Java flavour of the BIP (Behaviour, Interactions, Priorities) framework} \\ \url{http://risd.epfl.ch/javabip} ou \url{https://github.com/sbliudze}
+	\\
+\url{https://github.com/hoangia90} (Pour Les Services de Cloud)}
+
+
+\section{Quelques Présentations}
+
+% Format:  \cvlistitem{Achievement}
+% Example: \cvlistitem{Received best student award}
+% Example: \cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+\cvlistitem{\textbf{Efficient Parameter Synthesis Using Optimized State Exploration Strategies}, 22nd International Conference on Engineering of Complex Computer Systems - ICECCS 2017, Fukuoka, Japon.}
+
+\cvlistitem{\textbf{Parametric Model Checking Timed Automata Under non-Zenoness Assumption}, 9th NASA Formal Methods Symposium - NFM 2017, California, États-Unis.}
+
+\cvlistitem{\textbf{Enhanced Distributed Behavioral Cartography of Parametric Timed Automata}, SynCoP 2015, Londres, Royaume-Uni.}
+
+%\cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+%-------------------Skills Matrix Section----------------------------------------------------------------
+
+\section{Compétences}
+
+\cvitem{\textbf{Méthodes Formelles}}{
+Model Checking et Theorem Proving.
+\begin{itemize}
+	\item \textbf{Formalisms:} Automates Temporisés Paramétré, Logique Temporelle, Petri Nets, Event-B (Méthode B).
+	\item \textbf{Model Checkers:} Altarica-Studio, Rodin IDE, IMITATOR, SPIN, PAT, Upaal.
+\end{itemize}
+}
+
+%\cvitem{\textbf{Model Checker}}{Altarica-Studio, Rodin IDE, IMITATOR, SPIN, PAT, Upaal.}
+
+\cvitem{\textbf{Program. Parallèle}}{Conception d'algorithmes distribués en utilisant MPI/OpenMP, akka.}
+
+\cvitem{\textbf{Langages}}{C, C++, C\#, Java(EE), Ocaml, Python, Prolog, Batch, Shell, HTML, XML, CSS, JavaScript/AJAX, etc.}
+
+\cvitem{\textbf{Bases de Données}}{Oracle Database, MS SQL, ODBMS, MySQL, Postgre.}
+
+%\cvitem{\textbf{Outils}}{Microsoft Visual Studio, Eclipse IDE, NetBean IDE, Borland C++, Code::Block, SVN, Git, Maven.}
+
+\cvitem{\textbf{ACOO/POO}}{Analyse et Conception Orientées Objet (ACOO), Programmation Orientée Objet (POO), Unified Modeling Language (UML).}
+
+%\cvitem{\textbf{Framework \& Biblio.}}{.NET, BACKBONE.}
+
+%\cvitem{\textbf{Serveurs}}{Apache Tomcat, Jetty, Glassfish, IIS.}
+
+%\cvitem{\textbf{Service Web}}{Restful, SOAP Web services.}
+
+%\cvitem{\textbf{Autres Compétences}}{Design Pattern, LaTex, Word, Excel, Power Point, Viso.}
+
+\cvitem{\textbf{Autres Compétences}}{LaTex, Microsoft Office.}
+
+\cvitem{\textbf{Télécoms \& Réseaux}}{Forte connaissance de télécommunication et réseaux.}
+
+%-------------------References Section------------------------------------------------------------------
+
+\section{Références}
+
+\subsection{Laboratoire LIPN - Université Paris 13, Villetaneuse, France}
+
+\cvlistitem{\cvreference{Professeur Étienne ANDRÉ}{}{}{}{}{Etienne.Andre@univ-paris13.fr}{}{}}
+
+\cvlistitem{\cvreference{Professeur Laure PETRUCCI}{}{}{}{}{Laure.Petrucci@lipn.univ-paris13.fr}{}{}}
+
+\subsection{Laboratoire LaBRI - Université de Bordeaux, Bordeaux, France}
+\cvlistitem{\cvreference{Maître de Conférences Anne DICKY}{}{}{}{}{Anne.Dicky@labri.fr}{}{}}
+
+\subsection{Laboratoire SAVE - University of Technology, Ho Chi Minh, Vietnam}
+\cvlistitem{\cvreference{Maître de Conférences Thanh Tho QUAN}{}{}{}{}{QTTho@cse.hcmut.edu.vn}{}{}}
+
+
+
+
+
+
+
+
+
+%-------------------Languages Section-------------------------------------------------------------------
+
+\section{Langues}
+
+% Format:  \cvitemwithcomment{Language}{Skill level}{Comment}
+% Example: \cvitemwithcomment{English}{Native}{Mother Tongue}
+% Example: \cvitemwithcomment{French}{Fluent}{Daily practice, all work performed in English}
+
+\cvitemwithcomment{Vietnamien}{Natif}{Langue Maternelle}
+\cvitemwithcomment{Anglais}{Courant}{Tous les travaux sont effectués en anglais}
+\cvitemwithcomment{Français}{Intermédiaire}{Apprendre depuis 2015}
+
+%-------------------Interests Section-------------------------------------------------------------------
+
+\section{Intérêts}
+
+% Format:  \cvitem{Hobby}{Description}
+% Example: \cvitem{Gaming}{Computer Games}
+% Example: \cvitem{Sport}{Golf, Tennis}
+
+\cvitem{Recherche}{Model Checking et Verification, Calcul Distribué, Intelligence Artificielle, Big Data et Data Mining, Cloud Computing.}
+\cvitem{Loisirs}{Exploration de Nouvelles Technologies, Photographie, Natation, Randonnée, Lecture, Voyage.}
+
+
+
+
+%-------------------Publications Section----------------------------------------------------------------
+% The cvitem commands needs to be altered to correctly print all publications with the moderntime package.
+% The cvitem command is edited to remove all forced punctuation within the command.
+% All the typesetting of the text is handled by the modified Biblatex style.
+
+\input{cvitem_modifications/cvitem_modified}        % Removing forced punctuation from cvitem
+
+\nocite{*}                                          % Print all publications.
+
+% Format:  \printbibliography[type=Biblatex type,title={Title of publication}]
+% Example: \printbibliography[type=article,title={Journal Publications}]
+% Example: \printbibliography[type=inproceedings,title={Conference Publications}]
+% Example: \printbibliography[type=thesis,title={Thesis}]
+
+\printbibliography[type=article,title={Journal Publications}]
+\printbibliography[type=inproceedings,title={Conference Publications}]
+\printbibliography[type=thesis,title={Thesis}]
+
+\input{cvitem_modifications/cvitem_moderncvclassic} % Reverting changes to cvitem.
+
+
+
+\clearpage
+
+%-------------------Appendix----------------------------------------------------------------------------
+% This section is added to append any additional documents to the cv.
+% The appended documents are added to the table of contents for easier navigation of the document.
+% Usage: (section)
+% \phantomsection
+% \addcontentsline{toc}{section}{title}
+% 
+% Format: (subsection)
+% \phantomsection\addcontentsline{toc}{subsection}{title}
+% \includepdf[pages=-]{appendix/filename.pdf}
+%
+% Example:
+% \phantomsection
+% \addcontentsline{toc}{section}{Certificates}
+%
+% \phantomsection
+% \addcontentsline{toc}{subsection}{Landscape}
+% \includepdf[pages=-]{appendix/CertificateLandscape.pdf}
+%
+% \phantomsection
+% \addcontentsline{toc}{subsection}{Portrait}
+% \includepdf[pages=-]{appendix/CertificatePortrait.pdf}
+
+%\phantomsection
+%\addcontentsline{toc}{section}{Certificates}
+%
+%\phantomsection
+%\addcontentsline{toc}{subsection}{Landscape}
+%\includepdf[pages=-]{appendix/CertificateLandscape.pdf}
+%
+%\phantomsection
+%\addcontentsline{toc}{subsection}{Portrait}
+%\includepdf[pages=-]{appendix/CertificatePortrait.pdf}
+
+%-------------------Cover letter------------------------------------------------------------------------
+
+%\input{coverletter.tex}                             % Include cover letter from coverletter.tex
+
+%-------------------Document End------------------------------------------------------------------------
+
+\end{document}
+
+%% end of file `main.tex'.

@@ -1,0 +1,515 @@
+%% start of file `main.tex'.
+%% Copyright 2014 Francois Mouton (moutonf@gmail.com).
+%
+% This template is adapted from the work performed by Xavier Danaux (xdanaux@gmail.com).
+% This template further extends the functionality by integrating the moderntimeline package.
+% This template also includes custom Biblatex style to print bibliography items with the moderntimeline package.
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv/moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % Only the 'classic' style is fully functional with the modifications made. The other options, 'casual' (default), 'oldstyle' and 'banking' has minor typesetting problems with the current modifications.
+\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column of the timeline
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. Be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks.
+
+%-------------------Inlcuding pdfpages package-------------------------------------------------------------
+
+\usepackage{pdfpages/pdfpages}
+
+%-------------------Including moderntimeline package-------------------------------------------------------
+
+\usepackage{moderntimeline/moderntimeline}
+
+\tlmaxdates{2005}{2017}                             % Set the scale of the timeline. \tlmaxdates{startDate}{endDate}
+
+%-------------------Including xpatch package---------------------------------------------------------------
+
+\usepackage{xpatch/xpatch}
+
+%-------------------Including Biblatex package-------------------------------------------------------------
+
+\usepackage[url=false,
+    backend=biber,                                  % This can be set to either biber or bibtex. If references are missing just change back and forth between biber and bibtex..
+    style=authoryear,
+    doi=false,  
+    isbn=false,
+    backref=false,
+    dashed=false,                                   % Do not add a dash out authors for subsequent articles with the same authors.
+    maxnames=99,                                    % Amount of authors to include before abbreviating.
+    sorting=ydnt]{biblatex}                         % Sorting in reverse order
+
+\addbibresource{cvreferences.bib}                   % Include your bibtex file here. Format: fileName.bib
+
+\input{biblatex_modifications/standard_modification.tex}        % Modifying the default standard.tex style of Biblatex. This modification is performed to include the moderntimeline package.
+
+%-------------------Defining a CV Reference column style and a CV reference entry block-------------------
+
+% Adapted from the solution provided in: http://tex.stackexchange.com/questions/34881/references-section-in-a-cv
+% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}{mobile phone number}
+% Everything but the name is optional
+% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
+% (Per default, \addresssymbol isn't specified, the other two are specified.)
+% If you don't like the symbols, remove them from the following code, including the tilde ~ (e.g. \phonesymbol~).
+
+\newcommand{\cvreferencecolumn}[2]{%
+  \cvitem[0.75em]{}{%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#2\end{minipage}%
+    }%
+}
+
+\newcommand{\cvreference}[8]{%
+    \textbf{#1}\newline% Name
+    \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+    \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+    \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+    \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+    \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{\href{mailto:#6}{\nolinkurl{#6}}}\newline}%
+    \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7\newline}
+    \ifthenelse{\equal{#8}{}}{}{\mobilephonesymbol~#8}}
+
+%-------------------Personal Data for CV title-----------------------------------------------------------
+% Example:
+\name{Résumé}{}
+\title{Hoang Gia NGUYEN}                               % optional, remove / comment the line if not wanted
+\address{Date of Birth: 22/09/1990}{Address: 9 allée Ronsard}{94230 Cachan, France}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{+33 6 52 72 12 25}                   % optional, remove / comment the line if not wanted
+%\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+\email{hoanggia.nguyen@lipn.univ-paris13.fr}
+%\email{hoanggia.nguyen@lipn.univ-paris13.fr}                               % optional, remove / comment the line if not wanted
+%\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+%\extrainfo{additional information} 
+\extrainfo{Citizenship: Vietnamese}
+%\extrainfo{Citizenship: Vietnamese}                  % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{images/picture}   
+\photo[64pt][0.4pt]{images/idphoto.jpg}                      % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file stored
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+%-------------------------------------------------------------------------------------------------------
+%   Content
+%-------------------------------------------------------------------------------------------------------
+\begin{document}
+
+%-------------------Resume------------------------------------------------------------------------------
+
+\makecvtitle
+
+%-------------------Education Section-------------------------------------------------------------------
+
+\section{Education}
+
+% For a date range: (To indicate 'up to present', set EndYear to 0)
+% Format:  \tlcventry{StartYear}{EndYear}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % Arguments 3 (Degree) to 6 (Grade) can be left empty. 
+% Example: \tlcventry{2012}{0}{BSc Computer Science}{University of MyCity}{MyCity}{}{Also completed several random courses}
+
+\tlcventry{2015}{2018}{PhD of Software Engineering}{LIPN Laboratory}{Paris 13 University}{Villetaneuse, France}{}
+%{Also completed several random courses}
+
+\tlcventry{2012}{2014}{Master of Software Engineering}{Bordeaux University}{French Universities Program – Vietnam National University}{Ho Chi Minh City, Vietnam}{}
+%{Also completed several random courses}
+
+\tlcventry{2008}{2012}{Bachelor of Software Engineering}{Hoa Sen University}{Ho Chi Minh City, Vietnam}{}{}
+%{Also completed several random courses}
+
+\tlcventry{2005}{2008}{Gifted student of mathematics, physics and chemistry}{Nguyen Chi Thanh High
+School}{Ho Chi Minh City, Vietnam}{}{}
+
+% For a single year:
+% Format:  \tldatecventry{StartYear}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+% Example: \tldatecventry{2008}{Senior Certificate}{High School MyCity}{MyCity}{\textit{80\%}}{Passed with distinction}
+
+%\tldatecventry{2005}{Senior Certificate}{High School MyCity}{MyCity}{\textit{80\%}}{Passed with distinction}
+
+%-------------------PhD Thesis Section------------------------------------------------------------------
+
+%\section{PhD thesis}
+%
+%% Format:  \cvitem{Section Name}{Description}
+%% Example: \cvitem{title}{\emph{The title of my PhD goes here}}
+%% Example: \cvitem{supervisors}{My supervisors' names go here}
+%% Example: \cvitem{description}{Short thesis abstract}
+%
+%\cvitem{title}{\emph{The title of my PhD goes here}}
+%\cvitem{supervisors}{My supervisors' names go here}
+%\cvitem{description}{Short thesis abstract}
+
+%-------------------Masters Thesis Section--------------------------------------------------------------
+
+\section{Master Thesis}
+
+% Format:  \cvitem{Section Name}{Description}
+% Example: \cvitem{title}{\emph{The title of my Masters goes here}}
+% Example: \cvitem{supervisors}{My supervisors' names go here}
+% Example: \cvitem{description}{Short thesis abstract}
+
+\cvitem{\textbf{Title}}{\emph{Distributed verification of parametric real-time systems}}
+\cvitem{\textbf{Supervisors}}{ Assoc.~Prof. Étienne ANDRÉ and Prof. Laure PETRUCCI }
+\cvitem{\textbf{Cooperative Supervisors}}{ Assoc.~Prof. Camille COTI and Assoc.Prof. Sami EVANGELISTA }
+\cvitem{\textbf{Description}}{improve existing algorithms and develop new efficient parallel distributed algorithms for parameter synthesis, and implement these algorithms in the IMITATOR tool.}
+
+%-------------------Achievements Section----------------------------------------------------------------
+
+\section{Achievements}
+
+% Format:  \cvlistitem{Achievement}
+% Example: \cvlistitem{Received best student award}
+% Example: \cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+\cvlistitem{\textbf{2014:} 1st class student in 2nd year of master (M2) with GPA: 15.6}
+\cvlistitem{\textbf{2013:} 2nd class student 1st year of master (M1) with GPA: 14.4}
+\cvlistitem{\textbf{2008-2012:} received Bachelor degree with GPA: 2.84/4.0}
+%\cvlistitem{\textbf{2008:} TOEIC scores: 670/990}
+%\cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+%-------------------Publications----------------------------------------------------------------
+
+\section{Publications}
+
+% Format:  \cvlistitem{Achievement}
+% Example: \cvlistitem{Received best student award}
+% Example: \cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+\cvlistitem{Étienne André, Giuseppe Lipari, Hoang Gia Nguyen and Youcheng Sun, \textbf{Reachability Preservation Based Parameter Synthesis for Timed Automata}. In Klaus Havelund, Gerard Holzmann, Rajeev Joshi (eds.), 7$^{th}$ NASA Formal Methods Symposium {NFM 2015}, LNCS9058, Springer, pages 50–65, April 2015. Acceptance rate: 31\%. }
+
+\cvlistitem{Étienne André, Camille Coti, Hoang Gia Nguyen, \textbf{Enhanced Distributed Behavioral Cartography of Parametric Timed Automata}, 17$^{th}$ International Conference on Formal Engineering Methods ICFEM 2015.}
+
+
+
+
+%\cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+%-------------------Publications----------------------------------------------------------------
+
+\section{Talk at International Event}
+
+% Format:  \cvlistitem{Achievement}
+% Example: \cvlistitem{Received best student award}
+% Example: \cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+\cvlistitem{\textbf{Enhanced Distributed Behavioral Cartography of Parametric Timed Automata}, SynCoP 2015, April 2015, London, UK}
+
+%\cvlistitem{Another achievement. This achievement is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+%-------------------Skills Matrix Section----------------------------------------------------------------
+
+\section{Skills}
+
+% For items with categories: 
+% Format:  \cvdoubleitem{Category}{List of skills}{Category Name}{List of skills}
+% Note: It looks better if the category is bold with \textbf{}
+% Example:
+% \subsection{Development}
+% \cvdoubleitem{\textbf{Languages}}{C\#, C\+\+, Java}{\textbf{Databases}}{MSSQL, MySQL}
+%
+% For a bullet list without categories:
+% Format:  \cvlistdoubleitem{Skill 1}{Skill 2}
+% Example: 
+% \subsection{Development}
+% \cvlistdoubleitem{C\#, Java, Ruby}{MSSQL, MySQL}
+% \cvlistdoubleitem{Photoshop}{Windows, Linux. In the single column list, this item is particularly long to wrap over several lines.}
+
+%\subsection{Development}
+%\cvdoubleitem{\textbf{Languages and Notations}}{C, C\#, Java, Ocaml, T-SQL, PL/SQL, Prolog, Event-B, Altarica, HTML, XML, JavaScript/AJAX, CSS}
+%{\textbf{Databases}}{Oracle Database, MS SQL, ODBMS, MySQL}
+
+\cvitem{\textbf{Formal Methods}}{Model Checking, Theorem Proving, Parametric Timed Automata, Temporal Logic, Petri Nets, Event-B}
+
+\cvitem{\textbf{Model Checker}}{Altarica-Studio, Rodin IDE, IMITATOR, SPIN}
+
+\cvitem{\textbf{Languages}}{C, C\#, Java, Ocaml, T-SQL, PL/SQL, Prolog, HTML, XML, JavaScript/AJAX, CSS}
+
+\cvitem{\textbf{Databases}}{Oracle Database, MS SQL, ODBMS, MySQL}
+
+\cvitem{\textbf{Tools}}{Microsoft Visual Studio, Eclipse IDE, NetBean IDE, Borland C++, Code::Block ; SVN, Git, Maven}
+
+\cvitem{\textbf{OOAD/OOP \& Tools}}{Object Oriented Analysis (OOA), Object Oriented Design (OOD), Object Oriented Programming (OOP), Unified Modeling Language (UML) ; IBM Rational Rose, Sparx, Visual Paradigm, Enterprise Architect, ArgoUML}
+
+%\cvitem{\textbf{Framework \& Library}}{.NET, BACKBONE, MPI}
+%
+%\cvitem{\textbf{Servers}}{Apache Tomcat, Jetty, Glassfish, IIS}
+%
+%\cvitem{\textbf{Web Service}}{Restful, SOAP Web services}
+
+%\cvitem{\textbf{Other skills}}{Design Pattern, LaTex, Word, Excel, Power Point, Viso}
+
+%-------------------Experience Section------------------------------------------------------------------
+
+\section{Experience}
+
+%-------------------Vocational Experience---------------------------------------------------------------
+
+\subsection{Vocational}
+
+% Format: \tlcventry{StartYear}{EndYear}{Job title}{Employer}{City}{Country (optional)}{General description no longer than 1--2 lines.\newline{}%
+% Example:
+% \tlcventry{2008}{2011}{System Administrator}{Simple Solutions}{MyCity}{}{Did system administrative work.\newline{}%
+% Main Duties:%
+%  \begin{itemize}%
+%      \item Administrate the servers;
+%      \item Administrate employee computers 
+%          \begin{itemize}%
+%              \item All employee's computers had to be up to date;
+%          \end{itemize}
+%      \item Did some more administrating
+%   \end{itemize}}
+
+\tlcventry{2014}{2015}{Intern}{\textbf{LIPN Laboratory - Paris 13 University}}{Paris - France}{}{
+Working with: Associate Prof. Étienne André, Prof. Laure Petrucci, Associate Prof. Sami Evangelista, Associate Prof. Camille Coti; \newline
+Main Works:%
+\begin{itemize}%
+	\item Understand formal methods and verification of parametric timed systems;
+	\item Design and optimize new algorithms that can be executed on clusters;
+	\item Work on new theoretical work on model checking parametric timed automata;
+\end{itemize}}
+
+\tlcventry{2014}{2015}{Member}{\textbf{SAVE} - Laboratory of Systems Analysis and VErification}{Ho Chi Minh City - Vietnam}{}
+{
+Member of the SAVE research Laboratory.\newline{}%
+}
+
+\tlcventry{2010}{2012}{System Administrator}{\textbf{Hoang Cuong Electronic}}{Ho Chi Minh City - Vietnam}{}{Did system administration work.\newline{}%
+Main Duties:%
+\begin{itemize}%
+ \item Administrate the servers;
+ \item Design, develop and manage company e-commercial website;
+\end{itemize}}
+
+\subsection{Projects at Bordeaux University}
+
+% Format: \tlcventry{StartYear}{EndYear}{Job title}{Employer}{City}{Country (optional)}{General description no longer than 1--2 lines.\newline{}%
+% Example:
+% \tlcventry{2008}{2011}{System Administrator}{Simple Solutions}{MyCity}{}{Did system administrative work.\newline{}%
+% Main Duties:%
+%  \begin{itemize}%
+%      \item Administrate the servers;
+%      \item Administrate employee computers 
+%          \begin{itemize}%
+%              \item All employee's computers had to be up to date;
+%          \end{itemize}
+%      \item Did some more administrating
+%   \end{itemize}}
+
+\tlcventry{2013}{2014}{Cloud Storage Integration}{Team size: 3}{}{}
+{Supervisor: David BROMBERG (David.Bromberg@labri.fr).\newline{}%
+Role: Main Developer.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Integrate cloud storage services (Google Drive, OneDrive, Dropbox, Amazon S3) as one RESTful Web service for easing accessing and managing by Web client  
+\end{itemize}}
+
+\tlcventry{2014}{2014}{K-modes Algorithm}{Team size: 2}{}{}
+{Supervisors: Maylis DELEST (Maylis.Delest@labri.fr) and Thanh Tung TRAN (Thanh-Tung.Tranarobaselabri.fr).\newline{}%
+Role: Team Leader.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Implement, visualize and develop K-mode Algorithm (a version of K-means) for fast clustering big categorical data 
+ %(Java)  
+\end{itemize}}
+
+\tlcventry{2013}{2014}{Airline Booking Online System}{Team size: 4}{}{}
+{Supervisor: Jérôme CHARTON (Charton@lab327.net).\newline{}%
+Role: Team Leader.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Design and develop a Web Application (MVC architecture, C\#, .Net, MS SQL) consists of booking tickets online, managing flights, tickets, employees ..etc
+\end{itemize}}
+
+\tlcventry{2013}{2013}{Label Propagation Algorithm}{Team size: 4}{}{}
+{Supervisors: François QUEYROI (QueyRoi@labri.fr) and Maylis DELEST  (Maylis.Delest@labri.fr).\newline{}%
+Role: Team Leader.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Implement, visualize and develop Algorithm 
+ %(Java) 
+Based on: Usha Nandini Rahavan, Reka Albert and Soundar Kumara, “ Near linear time algorithm to detect community structures in large-scale networks”
+\end{itemize}}
+
+
+\subsection{Projects at Hoa Sen University}
+
+% Format: \tlcventry{StartYear}{EndYear}{Job title}{Employer}{City}{Country (optional)}{General description no longer than 1--2 lines.\newline{}%
+% Example:
+% \tlcventry{2008}{2011}{System Administrator}{Simple Solutions}{MyCity}{}{Did system administrative work.\newline{}%
+% Main Duties:%
+%  \begin{itemize}%
+%      \item Administrate the servers;
+%      \item Administrate employee computers 
+%          \begin{itemize}%
+%              \item All employee's computers had to be up to date;
+%          \end{itemize}
+%      \item Did some more administrating
+%   \end{itemize}}
+
+%all project used C C++ C# (Microsoft Technology)
+
+\tlcventry{2011}{2011}{Voice  Recognition - Voice biometric authentication}{Team size: 4}{}{}
+{Role: Team Leader.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Develop an application of using Data Mining’s algorithms (K-means, K-nearest ..etc) and Artificial Intelligence's algorithm for Voice Security System. The input is voice sample, then analyzes to verify the identity of the individual.
+\end{itemize}}
+
+\tlcventry{2011}{2011}{Tour Management}{Team size: 4}{}{}
+{Role: Team Leader.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Design and develop Booking Tours Application includes HR module, CRM module, Contract management module, tour management module ..etc. (Implemented on Windows Application and Web Application).
+\end{itemize}}
+
+\tlcventry{2009}{2010}{Task Notification}{Team size: 3}{}{}
+{Role: Team Leader.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Design and develop a Tasks Management Application for Windows Mobile. The application will notify user the events , tasks on time 
+\end{itemize}}
+
+\tlcventry{2009}{2010}{University Library Project}{Team size: 3}{}{}
+{Role: Team Leader.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Design and develop Library Application consists of functions such as managing books, borrower, book prices, book-place indexing, import/export books…etc (Implemented on Windows Application and Web Application) 
+\end{itemize}}
+
+\tlcventry{2008}{2008}{Book Store (Web Application)}{Team size: 3}{}{}
+{Role: Main Developer.\newline{}%
+Main Works:%
+\begin{itemize}%
+ \item Design and develop an application using 3-tier architecture, .Net, MS SQL 
+\end{itemize}}
+
+%-------------------References Section------------------------------------------------------------------
+
+\section{References}
+
+% Format:  \cvreferencecolumn{\cvreference{Name Surname}{Position}{Department}{Company}{City}{Email}{Home Phone}{Cell Phone}}{\cvreference{Name Surname}{Position}{Department}{Company}{City}{Email}{Home Phone}{Cell Phone}}
+% Example: 
+% \subsection{Simple Solutions}
+% \cvreferencecolumn{\cvreference{John Doe}{Developer}{HR}{Simple Solutions}{MyCity}{john@email.com}{+12 (34) 567 8901}{+23 (45) 678 9012}}{\cvreference{Jane Doe}{Accountant}{HR}{Simple Solutions}{MyCity}{jane@email.com}{+34 (56) 789 0123}{+45 (67) 890 1234}}
+% \subsection{Monster Inc}
+% \cvreferencecolumn{\cvreference{Alice Doe}{Manager}{HR}{Monster Inc}{ThatCity}{alice@email.com}{+12 (34) 567 8901}{+23 (45) 678 9012}}{}
+
+\subsection{LIPN Laboratory - Paris 13 University}
+%\cvreferencecolumn{\cvreference{John Doe}{Developer}{HR}{Simple Solutions}{MyCity}{john@email.com}{+12 (34) 567 8901}{+23 (45) 678 9012}}{\cvreference{Jane Doe}{Accountant}{HR}{Simple Solutions}{MyCity}{jane@email.com}{+34 (56) 789 0123}{+45 (67) 890 1234}} 
+
+\cvlistitem{\cvreference{Étienne ANDRÉ}{Associate Professor}{ Researcher and Lecture (Logic, Computation and Reasoning team)}{LIPN Laboratory}{Paris - France}{Etienne.Andre@univ-paris13.fr}{}{}}
+
+\cvlistitem{\cvreference{Laure PETRUCCI}{Professor}{Director}{LIPN Laboratory}{Paris - France}{Laure.Petrucci@lipn.univ-paris13.fr}{}{}}
+
+%{\cvreference{Laure PETRUCCI}{Professor}{Director}{LIPN Laboratory}{Paris-France}{Laure.Petrucci@lipn.univ-paris13.fr}{}{}} 
+
+\subsection{LaBRI Laboratory - Bordeaux University}
+\cvlistitem{\cvreference{Anne DICKY}{Associate Professor}{Director of Bordeaux University Software Engineering Program in Ho Chi Minh City}{LaBRI Laboratory}{Bordeaux - France}{Anne.Dicky@labri.fr}{}{}}
+
+\subsection{SAVE Laboratory - University of Technology}
+\cvlistitem{\cvreference{Thanh Tho QUAN}{Associate Professor}{Head, Department of Software Engineering}{University of Technology}{Ho Chi Minh - Vietnam}{QTTho@cse.hcmut.edu.vn}{}{}}
+
+
+
+%-------------------Languages Section-------------------------------------------------------------------
+
+\section{Languages}
+
+% Format:  \cvitemwithcomment{Language}{Skill level}{Comment}
+% Example: \cvitemwithcomment{English}{Native}{Mother Tongue}
+% Example: \cvitemwithcomment{French}{Fluent}{Daily practice, all work performed in English}
+
+\cvitemwithcomment{Vietnamese}{Native}{Mother Tongue}
+\cvitemwithcomment{English}{Daily practice}{All work performed in English}
+\cvitemwithcomment{French}{Basic}{Learning since 2015}
+
+%-------------------Interests Section-------------------------------------------------------------------
+
+\section{Interests}
+
+% Format:  \cvitem{Hobby}{Description}
+% Example: \cvitem{Gaming}{Computer Games}
+% Example: \cvitem{Sport}{Golf, Tennis}
+
+\cvitem{Research}{Model Checking and Verification, Distributed Computing, Artificial Intelligence, Data Mining and Big Data.}
+\cvitem{Leisure}{Exploring new technology, Swimming, hiking, reading books, watching movies}
+
+
+
+
+%-------------------Publications Section----------------------------------------------------------------
+% The cvitem commands needs to be altered to correctly print all publications with the moderntime package.
+% The cvitem command is edited to remove all forced punctuation within the command.
+% All the typesetting of the text is handled by the modified Biblatex style.
+
+\input{cvitem_modifications/cvitem_modified}        % Removing forced punctuation from cvitem
+
+\nocite{*}                                          % Print all publications.
+
+% Format:  \printbibliography[type=Biblatex type,title={Title of publication}]
+% Example: \printbibliography[type=article,title={Journal Publications}]
+% Example: \printbibliography[type=inproceedings,title={Conference Publications}]
+% Example: \printbibliography[type=thesis,title={Thesis}]
+
+\printbibliography[type=article,title={Journal Publications}]
+\printbibliography[type=inproceedings,title={Conference Publications}]
+\printbibliography[type=thesis,title={Thesis}]
+
+\input{cvitem_modifications/cvitem_moderncvclassic} % Reverting changes to cvitem.
+
+
+
+\clearpage
+
+%-------------------Appendix----------------------------------------------------------------------------
+% This section is added to append any additional documents to the cv.
+% The appended documents are added to the table of contents for easier navigation of the document.
+% Usage: (section)
+% \phantomsection
+% \addcontentsline{toc}{section}{title}
+% 
+% Format: (subsection)
+% \phantomsection\addcontentsline{toc}{subsection}{title}
+% \includepdf[pages=-]{appendix/filename.pdf}
+%
+% Example:
+% \phantomsection
+% \addcontentsline{toc}{section}{Certificates}
+%
+% \phantomsection
+% \addcontentsline{toc}{subsection}{Landscape}
+% \includepdf[pages=-]{appendix/CertificateLandscape.pdf}
+%
+% \phantomsection
+% \addcontentsline{toc}{subsection}{Portrait}
+% \includepdf[pages=-]{appendix/CertificatePortrait.pdf}
+
+%\phantomsection
+%\addcontentsline{toc}{section}{Certificates}
+%
+%\phantomsection
+%\addcontentsline{toc}{subsection}{Landscape}
+%\includepdf[pages=-]{appendix/CertificateLandscape.pdf}
+%
+%\phantomsection
+%\addcontentsline{toc}{subsection}{Portrait}
+%\includepdf[pages=-]{appendix/CertificatePortrait.pdf}
+
+%-------------------Cover letter------------------------------------------------------------------------
+
+%\input{coverletter.tex}                             % Include cover letter from coverletter.tex
+
+%-------------------Document End------------------------------------------------------------------------
+
+\end{document}
+
+%% end of file `main.tex'.
