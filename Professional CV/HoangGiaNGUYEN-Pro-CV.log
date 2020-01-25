@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.10)  24 JAN 2020 02:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.10)  24 JAN 2020 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1462,7 +1462,7 @@ Package logreq Info: Writing requests to 'HoangGiaNGUYEN-Pro-CV.run.xml'.
 Here is how much of TeX's memory you used:
  28471 strings out of 492639
  558777 string characters out of 6133087
- 1040808 words of memory out of 5000000
+ 1040809 words of memory out of 5000000
  31911 multiletter control sequences out of 15000+600000
  317144 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1476,7 +1476,7 @@ dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/texlive/2018/texmf-dist
 d/lato/Lato-Regular.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.
 pfb>
-Output written on HoangGiaNGUYEN-Pro-CV.pdf (2 pages, 690658 bytes).
+Output written on HoangGiaNGUYEN-Pro-CV.pdf (2 pages, 690663 bytes).
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  130 compressed objects within 2 object streams
