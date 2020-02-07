@@ -1,0 +1,284 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.1.5, 1 December 2018) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e]{altacv}
+
+\usepackage{background}
+
+
+%% AltaCV uses the fontawesome and academicon fonts
+%% and packages.
+%% See texdoc.net/pkg/fontawecome and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+% Change the page layout if you need to
+\geometry{left=1cm,right=9cm,marginparwidth=6.8cm,marginparsep=1.2cm,top=1.25cm,bottom=1.25cm}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+% If using xelatex or lualatex:
+\setmainfont{Lato}
+\else
+% If using pdflatex:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\fi
+
+\usepackage[hidelinks]{hyperref}
+
+% Change the colours if you want to
+\definecolor{Mulberry}{HTML}{72243D}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+%\colorlet{heading}{Sepia}
+\colorlet{heading}{Orange}
+%\colorlet{accent}{Mulberry}
+\colorlet{accent}{Turquoise}
+%\colorlet{emphasis}{SlateGrey}
+\colorlet{emphasis}{MidnightBlue}
+%\colorlet{body}{LightGrey}
+\colorlet{body}{Black}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+
+\backgroundsetup{scale = 1., angle = 0, opacity = 1.,hshift=0.cm,
+	contents = {\includegraphics[width = \paperwidth,
+		height = \paperheight, keepaspectratio]
+%		{CoverPage/Vextor-CV-20.pdf}}}
+		{CoverPage/Abstracto-CV.pdf}}}
+
+\begin{document}
+	
+	\name{Hoang Gia NGUYEN}
+	
+	\tagline{Chercheur \& Développeur Sénior}
+	%English Version
+	%\tagline{Researcher \& Senior Developer}
+	
+	%\photo{2.8cm}{Globe_High}
+	\personalinfo{%
+		% Not all of these are required!
+		% You can add your own with \printinfo{symbol}{detail}
+		\email{hoangia90@email.com}
+		\phone{07 68 64 62 62}
+		\mailaddress{Appartement 22, 3 allée Léon Blum, 59260, Hellemmes, Lille, France}
+		\location{Lille, France}
+		\homepage{https://lipn.univ-paris13.fr/\textasciitilde{}hoanggia.nguyen/}
+		%  \twitter{@twitterhandle}
+		\linkedin{https://www.linkedin.com/in/hoang-gia-nguyen/}
+		\github{https://github.com/hoangia90}
+		%% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+		% \orcid{orcid.org/0000-0000-0000-0000}
+	}
+	
+	%% Make the header extend all the way to the right, if you want.
+	\begin{fullwidth}
+		\makecvheader
+	\end{fullwidth}
+	
+	%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+	% \AtBeginEnvironment{itemize}{\small}
+	
+	%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+	%% You can always just use \marginpar{...} if you do
+	%% not need to align the top of the contents to any
+	%% \cvsection title in the "main" bar.
+	\cvsection[sample-p1sidebar]{Expérience}
+	%English Version
+	%\cvsection[sample-p1sidebar]{Experience}
+	
+	\cvevent{Chercheur - Post-Doctorat}{\href{https://www.inria.fr/fr}{INRIA}}{Nov 2018 -- En Cours}{Lille, France}
+	\begin{itemize}
+		\item Projet de Recherche: Design of Correct-by-Construction Self-Adaptive Cloud Applications Using Formal Methods
+		
+		\item Développeur Fullstack Java \& Java Devops - Développement et Déploiement de la Plate-forme \href{https://github.com/sbliudze/javabip-core}{JavaBIP} : 
+		Concevoir et développer les modèles formels en assurant la coordination de micro-services sur l'environnement multi-cloud (GCP, AWS, Azure, Heroku, etc.); Développer les mécanismes pour les systèmes de multi-cloud micro-services tels que les déploiement et les backup automatisés, le monitoring etc.  
+	\end{itemize}
+	%English Version
+	%\cvevent{Chercheur - Post-doctorat}{\href{https://www.inria.fr/fr}{INRIA}}{Nov 2018 -- Ongoing}{Lille, France}
+	%\begin{itemize}
+	%	\item Gestion multi-cloud pour concevoir, déployer et monitorer une architecture cloud
+	%	\item Job description 2
+	%\end{itemize}
+	
+	\divider
+	
+	\cvevent{Doctorant - Ph.D. \& Stagiaire}{\href{https://www.univ-paris13.fr/}{Université Sorbonne Paris Nord}}{2014 -- 2015 -- 2018}{Villetaneuse, France}
+	\begin{itemize}
+		\item Thématique: Efficient Parametric Verification of Parametric Timed Automata
+		\item Développeur \href{https://ocaml.org/}{OCaml} \& \href{https://computing.llnl.gov/tutorials/mpi/}{MPI} - Développement de la Plate-forme \href{https://www.imitator.fr/}{IMITATOR} : 
+		Proposer, concevoir, optimiser et réaliser les algorithmes  de synthèse de paramètres et ses versions distribuées sur des reseaux de supercomputers
+	\end{itemize}
+	
+	\divider
+	
+	\cvevent{Enseignant}{\href{https://iutv.univ-paris13.fr/}{Université Sorbonne Paris Nord} \& Freelance}{2015 -- 2018}{Villetaneuse, France}
+	\begin{itemize}
+		\item Cours: Application Informatique Dédiée aux R\&T (Java), Bases de Données (Postgre), Bases des Services Réseaux
+		\item Cours (Freelance): Traitement automatique des langues (Python, Java, classification, clustering)
+	\end{itemize}
+	
+	\divider
+	
+%	\cvevent{Stagiaire}{\href{https://www.univ-paris13.fr/}{Université Sorbonne Paris Nord}}{2014 -- 2015}{Villetaneuse, France}
+%	%\begin{itemize}
+%	%	\item Thématique: Efficient Parametric Verification of Parametric Timed Automata.
+%	%	\item Développement de la plate-forme \href{https://www.imitator.fr/}{IMITATOR}: Proposer, concevoir, optimiser et réaliser les algorithmes distribuées de synthèse de paramètres sur des reseaux de supercomputers. 
+%	%\end{itemize}
+%	
+%	\divider
+	
+	\cvevent{Membre}{\href{URL}{SAVE Lab - École Polytechnique Universitaire de Ho Chi Minh Ville}}{2014 -- 2015}{Ho Chi Minh, Vietnam}
+	\begin{itemize}
+		\item Chercheur : Travailler avec l'équipe de recherche SAVE en méthode formelle et AI; Aider à améliorer des algorithmes, des méthodes, des approches, des théories, etc. 
+	\end{itemize}
+	
+	\divider
+	
+	\cvevent{Dévelopeur}{\href{http://hoangcuongelectric.vn/}{Hoang Cuong Electronic}}{2010 -- 2012}{Ho Chi Minh, Vietnam}
+	\begin{itemize}
+		\item Dévelopeur (C\#, Microsoft SQL, \href{https://magento.com/}{Magento CMS}) - Développement Une Partie de Système ERP de l'Entreprise
+%		\item Job description 2
+	\end{itemize}
+	
+	\clearpage
+	
+%	\medskip
+	
+%	\cvsection[page2sidebar]{Projects}
+	\cvsection[page2sidebar]{Logiciels}
+	
+	\cvevent{IMITATOR}{Parameter Synthesis for Real-Time Systems}
+	{}{}
+	\begin{itemize}
+		\item \href{IMITATOR}{https://www.imitator.fr/}
+	\end{itemize}
+	
+	\divider
+	
+	\cvevent{JavaBIP}{Coordination of concurrent Java components using a Java
+		flavour of the BIP (Behaviour, Interactions, Priorities) framework
+}
+	{}{}
+	\begin{itemize}
+		\item \href{https://github.com/sbliudze}{https://github.com/sbliudze}
+		\item \href{https://github.com/hoangia90}{https://github.com/hoangia90}
+	\end{itemize}
+
+	\divider
+	
+	\cvevent{Autres Projets}{Mes nouveaux projets personnels seront mis en ligne sur GitHub}
+	{}{}
+	\begin{itemize}
+		\item \href{https://github.com/hoangia90}{https://github.com/hoangia90}
+	\end{itemize}
+	
+	
+	
+	
+	\cvsection{Publications}
+	\nocite{*}
+	
+%	\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+%	
+%	\divider
+%	
+%	\printbibliography[heading=pubtype,title={\printinfo{\faFileTextO}{Journal Articles}},type=article]
+%	
+%	\divider
+%	
+%	\printbibliography[heading=pubtype,title={\printinfo{\faGroup}{Conference Proceedings}},type=inproceedings]
+	
+	\begin{itemize}
+		\item Étienne André, Hoang Gia Nguyen et  Laure Petrucci. \textcolor{Turquoise}{\textbf{Distributed non-Zenoness parametric model checking (article de revues internationales)}}. Soumis.
+		\item Hoang Gia Nguyen, Laure Petrucci, et Jaco van de Pol. \textcolor{Turquoise}{\textbf{Layered and Collecting NDFS with Subsumption for Parametric Timed Automata}}. 23nd International Conference on Engineering of Complex Computer Systems, IEEE CPS {ICECCS 2018}
+		\item Étienne André, Hoang Gia Nguyen et Laure Petrucci. \textcolor{Turquoise}{\textbf{Efficient parameter synthesis using optimized state exploration strategies}}. 22nd International Conference on Engineering of Complex Computer Systems, IEEE CPS {ICECCS 2017}
+		\item Étienne André, Hoang Gia Nguyen,  Laure Petrucci et Sun Jun. \textcolor{Turquoise}{\textbf{Parametric model checking timed automata under non-Zenoness assumption}}. 
+		9$^{th}$ NASA Formal Methods Symposium {NFM 2017}
+		\item Étienne André, Giuseppe Lipari, Hoang Gia Nguyen et Youcheng Sun. \textcolor{Turquoise}{\textbf{Reachability Preservation Based Parameter Synthesis for Timed Automata}}. 
+		%In Klaus Havelund, Gerard Holzmann, Rajeev Joshi (eds.), 
+		7$^{th}$ NASA Formal Methods Symposium {NFM 2015}
+		%LNCS9058, Springer, pages 50–65, April 2015. Acceptance rate: 31\%. 
+		\item Étienne André, Camille Coti et Hoang Gia Nguyen, \textcolor{Turquoise}{\textbf{Enhanced Distributed Behavioral Cartography of Parametric Timed Automata}}, 17$^{th}$ International Conference on Formal Engineering Methods ICFEM 2015
+	\end{itemize}
+	
+%	\medskip
+%	
+%	\cvsection{Intérêts}
+%	
+%	\begin{itemize}
+%		\item Recherche: Model Checking et Verification, Calcul Distribué, Intelligence Artificielle, Big Data et Data Mining, Cloud Computing
+%		\item Loisirs: Exploration de Nouvelles Technologies, Photographie, Natation, Randonnée, Lecture, Voyage
+
+%	\end{itemize}
+	
+	
+	\medskip
+	
+	\cvsection{Ma Journée Habituelle}
+	
+	% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+	% \wheelchart{outer radius}{inner radius}{
+	% comma-separated list of value/text width/color/detail}
+	\wheelchart{1.5cm}{0.5cm}{%
+	  6/8em/accent!30/{Sommeil: \\Bon Sommeil ou Bon Cauchemar},
+	  3/8em/accent!40/Ma Famille ou Mes Amis(es),
+	  8/8em/accent!60/Travail,
+	  2/10em/accent/Sports et Relaxation,
+	  5/6em/accent!20/{Intérêts: \\Photographie, Lecture, Écrire sur mon Blog, etc.}
+	}
+	
+%	\clearpage
+%	\cvsection[page2sidebar]{Publications}
+%	
+%	\nocite{*}
+%	
+%	\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+%	
+%	\divider
+%	
+%	\printbibliography[heading=pubtype,title={\printinfo{\faFileTextO}{Journal Articles}},type=article]
+%	
+%	\divider
+%	
+%	\printbibliography[heading=pubtype,title={\printinfo{\faGroup}{Conference Proceedings}},type=inproceedings]
+	
+	%% If the NEXT page doesn't start with a \cvsection but you'd
+	%% still like to add a sidebar, then use this command on THIS
+	%% page to add it. The optional argument lets you pull up the
+	%% sidebar a bit so that it looks aligned with the top of the
+	%% main column.
+	% \addnextpagesidebar[-1ex]{page3sidebar}
+	
+	
+\end{document}

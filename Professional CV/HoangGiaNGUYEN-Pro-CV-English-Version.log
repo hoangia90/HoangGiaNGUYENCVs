@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.10)  24 JAN 2020 14:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.12.10)  7 FEB 2020 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**HoangGiaNGUYEN-Pro-CV.tex
-(./HoangGiaNGUYEN-Pro-CV.tex
+**HoangGiaNGUYEN-Pro-CV-English-Version.tex
+(./HoangGiaNGUYEN-Pro-CV-English-Version.tex
 LaTeX2e <2018-04-01> patch level 5
 (./altacv.cls
 Document Class: altacv 2018/12/01 AltaCV v1.1.5, yet another alternative class 
@@ -1188,8 +1188,8 @@ File: english.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
 \@quotelevel=\count319
 \@quotereset=\count320
 
-(./HoangGiaNGUYEN-Pro-CV.aux)
-\openout1 = `HoangGiaNGUYEN-Pro-CV.aux'.
+(./HoangGiaNGUYEN-Pro-CV-English-Version.aux)
+\openout1 = `HoangGiaNGUYEN-Pro-CV-English-Version.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
 LaTeX Font Info:    ... okay on input line 80.
@@ -1285,12 +1285,13 @@ ABD: EveryShipout initializing macros
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout6 = `HoangGiaNGUYEN-Pro-CV.bcf'.
+\openout6 = `HoangGiaNGUYEN-Pro-CV-English-Version.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'HoangGiaNGUYEN-Pro-CV.bbl' not found.
+Package biblatex Info: ... file 'HoangGiaNGUYEN-Pro-CV-English-Version.bbl' not
+ found.
 
-No file HoangGiaNGUYEN-Pro-CV.bbl.
+No file HoangGiaNGUYEN-Pro-CV-English-Version.bbl.
 Package biblatex Info: Reference section=0 on input line 80.
 Package biblatex Info: Reference segment=0 on input line 80.
 \c@mv@tabular=\count327
@@ -1309,9 +1310,10 @@ LaTeX Info: Redefining \ref on input line 80.
 LaTeX Info: Redefining \pageref on input line 80.
 LaTeX Info: Redefining \nameref on input line 80.
 
-(./HoangGiaNGUYEN-Pro-CV.out) (./HoangGiaNGUYEN-Pro-CV.out)
+(./HoangGiaNGUYEN-Pro-CV-English-Version.out)
+(./HoangGiaNGUYEN-Pro-CV-English-Version.out)
 \@outlinefile=\write7
-\openout7 = `HoangGiaNGUYEN-Pro-CV.out'.
+\openout7 = `HoangGiaNGUYEN-Pro-CV-English-Version.out'.
 
 LaTeX Font Info:    Font shape `T1/lato-TLF/m/n' will be
 (Font)              scaled to size 24.88pt on input line 106.
@@ -1438,10 +1440,11 @@ Package pdftex.def Info: CoverPage/Abstracto-CV.pdf  used on input line 284.
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
- (./HoangGiaNGUYEN-Pro-CV.aux)
+ (./HoangGiaNGUYEN-Pro-CV-English-Version.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 284.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 284.
-Package rerunfilecheck Info: File `HoangGiaNGUYEN-Pro-CV.out' has not changed.
+Package rerunfilecheck Info: File `HoangGiaNGUYEN-Pro-CV-English-Version.out' h
+as not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
@@ -1452,21 +1455,22 @@ LaTeX Warning: There were undefined references.
 
 
 Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                HoangGiaNGUYEN-Pro-CV
+(biblatex)                HoangGiaNGUYEN-Pro-CV-English-Version
 (biblatex)                and rerun LaTeX afterwards.
 
-Package logreq Info: Writing requests to 'HoangGiaNGUYEN-Pro-CV.run.xml'.
-\openout1 = `HoangGiaNGUYEN-Pro-CV.run.xml'.
+Package logreq Info: Writing requests to 'HoangGiaNGUYEN-Pro-CV-English-Version
+.run.xml'.
+\openout1 = `HoangGiaNGUYEN-Pro-CV-English-Version.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
  28471 strings out of 492639
- 558777 string characters out of 6133087
- 1040809 words of memory out of 5000000
+ 559049 string characters out of 6133087
+ 1040825 words of memory out of 5000000
  31911 multiletter control sequences out of 15000+600000
  317144 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,9n,91p,1166b,815s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,9n,91p,1182b,815s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2018/texmf-dist/fonts/enc/dvips/lato/a_w6akef.enc}{c:/texlive/201
 8/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}{c:/texlive/2018/te
 xmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc}<c:/texlive/2018/texmf-
@@ -1476,7 +1480,8 @@ dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/texlive/2018/texmf-dist
 d/lato/Lato-Regular.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.
 pfb>
-Output written on HoangGiaNGUYEN-Pro-CV.pdf (2 pages, 690663 bytes).
+Output written on HoangGiaNGUYEN-Pro-CV-English-Version.pdf (2 pages, 690663 by
+tes).
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  130 compressed objects within 2 object streams

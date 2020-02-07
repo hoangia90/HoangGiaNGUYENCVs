@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>CV-HoangGiaNGUYEN.bcf</file>
+      <file>HoangGiaNGUYEN-Pro-CV-English-Version.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>CV-HoangGiaNGUYEN.bbl</file>
+      <file>HoangGiaNGUYEN-Pro-CV-English-Version.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,22 +64,22 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>CV-HoangGiaNGUYEN</infile>
+      <infile>HoangGiaNGUYEN-Pro-CV-English-Version</infile>
     </cmdline>
     <input>
-      <file>CV-HoangGiaNGUYEN.bcf</file>
+      <file>HoangGiaNGUYEN-Pro-CV-English-Version.bcf</file>
     </input>
     <output>
-      <file>CV-HoangGiaNGUYEN.bbl</file>
+      <file>HoangGiaNGUYEN-Pro-CV-English-Version.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>CV-HoangGiaNGUYEN.bbl</file>
+      <file>HoangGiaNGUYEN-Pro-CV-English-Version.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>CV-HoangGiaNGUYEN.bcf</file>
+      <file>HoangGiaNGUYEN-Pro-CV-English-Version.bcf</file>
     </requires>
     <requires type="editable">
-      <file>cvreferences.bib</file>
+      <file>sample.bib</file>
     </requires>
   </external>
 </requests>
